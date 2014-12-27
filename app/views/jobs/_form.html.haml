@@ -1,0 +1,50 @@
+.bs-docs-section
+  .row
+    .col-md-offset-2.col-lg-8
+      .well.bs-component
+        = form_for job do |f|
+          .form-group
+            .form-control-wrapper
+              = f.text_field :title, class: 'form-control empty input-lg'
+              .floating-label Job Title
+
+          .form-group
+            .form-control-wrapper
+              = f.text_field :company_name, class: 'form-control empty'
+              .floating-label Company Name
+
+          .form-group
+            .form-control-wrapper
+              = f.text_field :company_url, class: 'form-control empty'
+              .hint e.g. http://example.com
+              .floating-label Website URL
+
+          .form-group
+            .form-control-wrapper
+              = f.text_field :email, type: :email, class: 'form-control empty'
+              .hint We'll need this to send the receipt
+              .floating-label Email
+
+
+          .form-group
+            .form-control-wrapper
+              = f.text_area :decription, class: 'form-control empty', rows: 7
+              .hint Explain what the job entails
+              .floating-label Description
+
+          .form-group
+            .form-control-wrapper
+              = f.text_area :employees_in, class: 'form-control empty', rows: 5
+              .hint Tell a bit about the existing employees and where they work from. This gives more confidence to the applicant and can be a great selling point.
+              .floating-label Location of existing employees
+
+          .form-group
+            .form-control-wrapper
+              = f.text_area :how_to_apply, class: 'form-control empty', rows: 3
+              .floating-label How To Apply
+
+
+          .form-group.text-center
+            = f.submit "Preview", class: 'btn btn-primary'
+            = f.submit "Save and Continue", class: 'btn btn-success'
+
