@@ -37,6 +37,7 @@ gem 'rails-assets-bootstrap-material-design'
 gem 'rails-assets-bootstrap'
 
 group :development, :test do
+  gem 'pry'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -47,5 +48,6 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
+  gem 'capybara'
 end
 

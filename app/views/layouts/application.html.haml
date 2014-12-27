@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title Remote Ruby on Rails jobs
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    .container
+      - flash.each do |name, message|
+        - type = name.to_s == 'notice' ? 'success' : 'error'
+        = render 'shared/alert', type: type, highlight: '', text: message
+      = yield

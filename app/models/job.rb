@@ -3,6 +3,10 @@ class Job < ActiveRecord::Base
 
   before_create :generate_token
 
+  def expired?
+    visible_until && visible_until < Time.now
+  end
+
 private
 
   def generate_token

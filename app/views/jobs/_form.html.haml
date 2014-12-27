@@ -1,8 +1,9 @@
-.bs-docs-section
+.bs-docs-section.test-job-form
   .row
     .col-md-offset-2.col-lg-8
       .well.bs-component
         = form_for job do |f|
+          = hidden_field_tag :token, params[:token]
           .form-group
             .form-control-wrapper
               = f.text_field :title, class: 'form-control empty input-lg'
@@ -28,7 +29,7 @@
 
           .form-group
             .form-control-wrapper
-              = f.text_area :decription, class: 'form-control empty', rows: 7
+              = f.text_area :description, class: 'form-control empty', rows: 7
               .hint Explain what the job entails
               .floating-label Description
 

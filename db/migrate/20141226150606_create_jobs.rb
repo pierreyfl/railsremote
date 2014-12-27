@@ -10,7 +10,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :salary
       t.string :company_url
       t.string :email
-      t.text :decription
+      t.text :description
       t.text :how_to_apply
       t.text :employees_in
       t.datetime :visible_until
