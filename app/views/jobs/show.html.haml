@@ -14,8 +14,10 @@
           %small
             at
             = link_to @job.company_name, @job.company_url, target: "_blank"
+        %p
+          %label Job type:
+          = @job.job_type
 
-        %h3 Description
         %p= @job.description
 
         %h3 Existing Employess

@@ -1,5 +1,11 @@
 class Job < ActiveRecord::Base
-  scope :visible, ->{ where("jobs.visible_until <= ?", Time.now) }
+  TYPES = {
+    "--Select Job Type--" => "Unspecified",
+    "Long Term" => "Long Term",
+    "Project" => "Project"
+  }.freeze
+
+  scope :visible, ->{ where("jobs.visible_until >= ?", Time.now).where(published: true) }
 
   before_create :generate_token
 

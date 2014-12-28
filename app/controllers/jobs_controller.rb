@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    @job = Job.visible
+    @jobs = Job.visible
   end
 
   def show
@@ -50,7 +50,7 @@ private
 
   def handle_success
     if @job.published
-      redirect_to job_path(@job, token: @job.token), notice: "This job will become public after our moderators approve it"
+      redirect_to job_path(@job, token: @job.token), notice: "All done! This job will become public after our moderators approve it"
     else
       redirect_to job_path(@job, token: @job.token)
     end
