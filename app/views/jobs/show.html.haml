@@ -27,5 +27,5 @@
         %p= @job.how_to_apply
 
         - if params[:token] == @job.token
-          = link_to "All good, make it live", edit_job_path(@job, token: params[:token]), class: 'btn btn-primary pull-right'
+          = link_to "All good, make it live", job_path(@job, job: {published: true}, token: params[:token]), class: 'btn btn-primary pull-right', method: :patch
         .clearfix
