@@ -3,29 +3,29 @@
 - if params[:token] == @job.token && !@job.published?
   = render 'shared/alert', type: 'info', highlight: "This is a preview.", text: "The job is not visible publicly. Do not share this link, it allows editing the job posting."
 
-.bs-docs-section.test-job-form
-  .row
-    .col-md-offset-1.col-lg-10
-      .well.bs-component
-        - if params[:token] == @job.token
-          = link_to "Edit the Job", edit_job_path(@job, token: params[:token]), class: 'btn btn-success pull-right'
-        %h2
-          = @job.title
-          %small
-            at
-            = link_to @job.company_name, @job.company_url, target: "_blank"
-        %p
-          %label Job type:
-          = @job.job_type
 
-        %p= @job.description
+.row.test-job-form
+  .col-md-offset-1.col-lg-10
+    .well.bs-component
+      - if params[:token] == @job.token
+        = link_to "Edit the Job", edit_job_path(@job, token: params[:token]), class: 'btn btn-success pull-right'
+      %h2
+        = @job.title
+        %small
+          at
+          = link_to @job.company_name, @job.company_url, target: "_blank"
+      %p
+        %label Job type:
+        = @job.job_type
 
-        %h3 Existing Employess
-        %p= @job.employees_in
+      %p= @job.description
 
-        %h3 How to apply
-        %p= @job.how_to_apply
+      %h3 Existing Employess
+      %p= @job.employees_in
 
-        - if params[:token] == @job.token
-          = link_to "All good, make it live", job_path(@job, job: {published: true}, token: params[:token]), class: 'btn btn-primary pull-right', method: :patch
-        .clearfix
+      %h3 How to apply
+      %p= @job.how_to_apply
+
+      - if params[:token] == @job.token
+        = link_to "All good, make it live", job_path(@job, job: {published: true}, token: params[:token]), class: 'btn btn-primary pull-right', method: :patch
+      .clearfix

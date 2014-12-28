@@ -6,8 +6,15 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
+    - flash.each do |name, message|
+      - type = name.to_s == 'notice' ? 'success' : 'error'
+      = render 'shared/alert', type: type, highlight: '', text: message
+
+    .header
+      %h1.text-center
+        = link_to "RailsRemote.com", root_path
+        %small Remote Ruby on Rails jobs. Developers globally
+
+
     .container
-      - flash.each do |name, message|
-        - type = name.to_s == 'notice' ? 'success' : 'error'
-        = render 'shared/alert', type: type, highlight: '', text: message
       = yield

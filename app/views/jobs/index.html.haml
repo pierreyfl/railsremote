@@ -1,2 +1,5 @@
-%ul
-  = render partial: 'quick_job', collection: @jobs, as: :job
+.row
+  .col-md-offset-1.col-lg-10
+    .well.bs-component
+      %ul
+        = render partial: 'quick_job', collection: @jobs, as: :job
