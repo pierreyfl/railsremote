@@ -19,17 +19,17 @@
             = quick_job_icon @job
             = @job.job_type
 
-        %p= @job.description
+        %p= md @job.description
 
-        - if @job.timezone_preferences_description.present?
+        - if @job.timezone_preferences.present?
           %h3 Time Zone Preferences
-          %p= @job.timezone_preferences_description
+          %p= md @job.timezone_preferences
 
         .panel.panel-default.push-down
           .panel-heading
             Apply for this Job
           .panel-body
-            %p= @job.how_to_apply
+            %p= md @job.how_to_apply
             - unless @job.agencies_ok?
               %p
                 %i.mdi-alert-warning.mdi-material-red
@@ -37,17 +37,17 @@
                 %b not ok
                 for recruitment agencies to contact us.
 
-        - if @job.next_visible
-          = link_to "Next Job: #{@job.next_visible.full_title} →", job_path(@job.next_visible), class: 'pull-right', rel: 'next'
-
-        - if @job.prev_visible
-          = link_to "← Previous Job: #{@job.prev_visible.full_title}", job_path(@job.prev_visible), rel: 'prev'
-
         - if params[:token] == @job.token
           .text-center
             = link_to "Edit the Job", edit_job_path(@job, token: params[:token]), class: 'btn btn-default btn-raised'
             - if !@job.published?
               = link_to "All good, make it live", job_path(@job, job: {published: true}, token: params[:token]), class: 'btn btn-success btn-raised', method: :patch
+        - else
+          - if @job.next_visible
+            = link_to "Next Job: #{@job.next_visible.full_title} →", job_path(@job.next_visible), class: 'pull-right', rel: 'next'
+
+          - if @job.prev_visible
+            = link_to "← Previous Job: #{@job.prev_visible.full_title}", job_path(@job.prev_visible), rel: 'prev'
 
       .col-lg-2
         - text = "#{@job.company_name} is hiring a #{@job.title}"

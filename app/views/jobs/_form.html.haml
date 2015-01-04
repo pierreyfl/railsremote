@@ -39,18 +39,21 @@
               .form-control-wrapper
                 = f.text_area :description, class: 'form-control', rows: 15, required: :required
                 .hint Explain what the job entails
-                .floating-label Description
+                .floating-label
+                  Description (Markdown enabled)
 
             .form-group
               .form-control-wrapper
-                = f.text_area :timezone_preferences_description, class: 'form-control', rows: 3, required: :required
-                .hint List any Time Zone Preferences e.g. must be able to work during US business hours
-                .floating-label Time Zone Preferences
+                = f.text_area :timezone_preferences, class: 'form-control', rows: 3
+                .hint List any Time Zone Preferences e.g. 'should be able to work during US business hours'
+                .floating-label
+                  Time Zone Preferences (Markdown enabled)
 
             .form-group
               .form-control-wrapper
                 = f.text_area :how_to_apply, class: 'form-control', rows: 3, required: :required
-                .floating-label How To Apply
+                .floating-label
+                  How To Apply (Markdown enabled)
                 .hint e.g. send an email to person@example.com with a CV attached
 
             .form-group

@@ -34,6 +34,23 @@ class Job < ActiveRecord::Base
     job_type.present? && job_type != "Unspecified"
   end
 
+  def self.template
+    default_text = <<-TEMPLATE
+      Here's is a simple Markdown template to get you started.
+
+      ### Essential Job Functions
+
+      - List item 1
+      - list item 2
+
+      ### Requirements
+
+      ### Benefits
+
+    TEMPLATE
+    new(description: default_text.gsub('      ', ''))
+  end
+
 private
 
   def generate_token
