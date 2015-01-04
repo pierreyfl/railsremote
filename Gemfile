@@ -33,6 +33,7 @@ gem 'jquery-rails'
 
 gem 'haml-rails'
 gem 'redcarpet'
+gem 'rails_12factor'
 # gem 'nokogiri'
 # gem 'faraday'
 
