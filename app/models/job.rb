@@ -6,6 +6,7 @@ class Job < ActiveRecord::Base
   }.freeze
 
   scope :visible, ->{ where("jobs.visible_until >= ?", Time.now).where(published: true) }
+  scope :newest_first, ->{ order("jobs.created_at DESC") }
 
   before_create :generate_token
 
