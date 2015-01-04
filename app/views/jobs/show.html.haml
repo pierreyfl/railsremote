@@ -13,9 +13,11 @@
           at
           = link_to @job.company_name, @job.company_url, target: "_blank"
       .col-lg-9
-        %p
-          %label Job type:
-          = @job.job_type
+        - if @job.type_specified?
+          %p.job-type
+            %label Job type:
+            = quick_job_icon @job
+            = @job.job_type
 
         %p= @job.description
 

@@ -30,6 +30,10 @@ class Job < ActiveRecord::Base
     "#{id}-remote-#{full_title.parameterize}"
   end
 
+  def type_specified?
+    job_type.present? && job_type != "Unspecified"
+  end
+
 private
 
   def generate_token

@@ -3,7 +3,7 @@
     = quick_job_icon job
 
   .row-content
-    .least-content= "Posted #{job.created_at.strftime('%B %e, %Y')}"
+    .least-content.hidden-xs= "Posted #{job.created_at.strftime('%B %e, %Y')}"
     %h4.list-group-item-heading= link_to job.title, job
     = puts job.company_url
     %p.list-group-item-text= link_to_if job.company_url.present?, job.company_name, job.company_url, target: '_blank'
