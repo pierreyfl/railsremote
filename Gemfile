@@ -33,8 +33,8 @@ gem 'jquery-rails'
 
 gem 'haml-rails'
 gem 'redcarpet'
-gem 'nokogiri'
-gem 'faraday'
+# gem 'nokogiri'
+# gem 'faraday'
 
 gem 'rails-assets-bootstrap-material-design'
 gem 'rails-assets-bootstrap'
