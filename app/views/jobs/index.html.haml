@@ -1,5 +1,9 @@
 .row
   .col-md-offset-1.col-lg-10
     .well.bs-component
-      %ul
+      .list-group
         = render partial: 'quick_job', collection: @jobs, as: :job
+
+      .clearfix
+        = link_to "Post a Job. Free for a limited time", new_job_path, class: 'btn btn-raised btn-default pull-right'
+

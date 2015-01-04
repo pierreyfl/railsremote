@@ -1,55 +1,71 @@
 .bs-docs-section.test-job-form
   .row
-    .col-md-offset-2.col-lg-8
+    .col-md-offset-1.col-lg-10
       .well.bs-component
         = form_for job, html: { class: 'js-form material-form' } do |f|
           = hidden_field_tag :token, params[:token]
-          .form-group
-            .form-control-wrapper
-              = f.text_field :title, class: 'form-control input-lg', required: :required
-              .floating-label Job Title
+          %fieldset
+            %legend Tell us about the company
+            .form-group
+              .form-control-wrapper
+                = f.text_field :company_name, class: 'form-control', required: :required
+                .floating-label Company Name
 
-          .form-group
-            .form-control-wrapper
-              = f.select :job_type, Job::TYPES, {}, class: 'form-control'
+            .form-group
+              .form-control-wrapper
+                = f.text_field :company_url, class: 'form-control'
+                .hint Where can a canidate find out more about the company? e.g. http://example.com.
+                .floating-label Website URL
 
-          .form-group
-            .form-control-wrapper
-              = f.text_field :company_name, class: 'form-control', required: :required
-              .floating-label Company Name
-
-          .form-group
-            .form-control-wrapper
-              = f.text_field :company_url, class: 'form-control'
-              .hint e.g. http://example.com
-              .floating-label Website URL
-
-          .form-group
-            .form-control-wrapper
-              = f.text_field :email, type: :email, class: 'form-control', required: :required
-              .hint We'll need this to send the receipt
-              .floating-label Email
+            .form-group
+              .form-control-wrapper
+                = f.text_field :email, type: :email, class: 'form-control', required: :required
+                .hint We'll need this to authorize you to edit the job post later
+                .floating-label Email
 
 
-          .form-group
-            .form-control-wrapper
-              = f.text_area :description, class: 'form-control', rows: 7, required: :required
-              .hint Explain what the job entails
-              .floating-label Description
+          %fieldset
+            %legend Tell us about the job
+            .form-group
+              .form-control-wrapper
+                = f.text_field :title, class: 'form-control input-lg', required: :required
+                .floating-label Job Title
 
-          .form-group
-            .form-control-wrapper
-              = f.text_area :employees_in, class: 'form-control', rows: 5
-              .hint Tell a bit about the existing employees and where they work from. This gives more confidence to the applicant and can be a great selling point.
-              .floating-label Location of existing employees
+            .form-group
+              .form-control-wrapper
+                = f.select :job_type, Job::TYPES, {}, class: 'form-control'
 
-          .form-group
-            .form-control-wrapper
-              = f.text_area :how_to_apply, class: 'form-control', rows: 3, required: :required
-              .floating-label How To Apply
+            .form-group
+              .form-control-wrapper
+                = f.text_area :description, class: 'form-control', rows: 15, required: :required
+                .hint Explain what the job entails
+                .floating-label Description
+
+            .form-group
+              .form-control-wrapper
+                = f.text_area :timezone_preferences_description, class: 'form-control', rows: 3, required: :required
+                .hint List any Time Zone Preferences e.g. must be able to work during US business hours
+                .floating-label Time Zone Preferences
+
+            .form-group
+              .form-control-wrapper
+                = f.text_area :how_to_apply, class: 'form-control', rows: 3, required: :required
+                .floating-label How To Apply
+                .hint e.g. send an email to person@example.com with a CV attached
+
+            .form-group
+              .form-control-wrapper
+                .checkbox
+                  = f.label :agencies_ok do
+                    = f.check_box :agencies_ok
+                    %span.ripple
+                    %span.check
+                    It's ok for recruitment agencies to contact us
+
+
 
 
           .form-group.text-center
-            = f.submit "Preview", class: 'btn btn-primary'
-            = f.submit "Save and Continue", class: 'btn btn-success'
+            = f.submit "Save and Continue", class: 'btn btn-default btn-raised'
+            = f.submit "Preview", class: 'btn btn-success btn-raised'
 

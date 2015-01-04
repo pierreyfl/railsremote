@@ -1,31 +1,53 @@
 - if @job.expired?
   = render 'shared/alert', type: 'warning', highlight: "This job listing has expired.", text: "It is not listed publically anymore and the advertiser may not be accepting job applications anymore."
-- if params[:token] == @job.token && !@job.published?
+- if params[:token] == @job.token
   = render 'shared/alert', type: 'info', highlight: "This is a preview.", text: "The job is not visible publicly. Do not share this link, it allows editing the job posting."
 
 
 .row.test-job-form
   .col-md-offset-1.col-lg-10
-    .well.bs-component
-      - if params[:token] == @job.token
-        = link_to "Edit the Job", edit_job_path(@job, token: params[:token]), class: 'btn btn-success pull-right'
+    .well.bs-component.clearfix
       %h2
         = @job.title
         %small
           at
           = link_to @job.company_name, @job.company_url, target: "_blank"
-      %p
-        %label Job type:
-        = @job.job_type
+      .col-lg-9
+        %p
+          %label Job type:
+          = @job.job_type
 
-      %p= @job.description
+        %p= @job.description
 
-      %h3 Existing Employess
-      %p= @job.employees_in
+        - if @job.timezone_preferences_description.present?
+          %h3 Time Zone Preferences
+          %p= @job.timezone_preferences_description
 
-      %h3 How to apply
-      %p= @job.how_to_apply
+        .panel.panel-default
+          .panel-heading
+            Apply for this Job
+          .panel-body
+            %p= @job.how_to_apply
+            - unless @job.agencies_ok?
+              %p
+                %i.mdi-alert-warning.mdi-material-red
+                It is
+                %b not ok
+                for recruitment agencies to contact us.
 
-      - if params[:token] == @job.token
-        = link_to "All good, make it live", job_path(@job, job: {published: true}, token: params[:token]), class: 'btn btn-primary pull-right', method: :patch
-      .clearfix
+        - if params[:token] == @job.token
+          .text-center
+            = link_to "Edit the Job", edit_job_path(@job, token: params[:token]), class: 'btn btn-default btn-raised'
+            - if !@job.published?
+              = link_to "All good, make it live", job_path(@job, job: {published: true}, token: params[:token]), class: 'btn btn-success btn-raised', method: :patch
+
+      .col-lg-2
+        - text = "#{@job.company_name} is hiring a #{@job.title}"
+        %p
+          = mail_to "", subject: text, body: "#{text}\n#{job_url(@job)}" do
+            %i.mdi-communication-email
+            Email to a friend
+        %p
+          = link_to "http://twitter.com/intent/tweet?url=#{job_url(@job)}&text=#{text}&via=rails_remote", target: "_blank" do
+            %i.mdi-social-share
+            Share on Twitter
