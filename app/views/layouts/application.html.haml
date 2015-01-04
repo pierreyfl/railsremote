@@ -8,12 +8,12 @@
   %body
     .header.container
       .row
-        .col-md-offset-1.col-lg-10
-          .pull-right
-            = link_to "Post a New Job", new_job_path
-          %h1.text-center
-            = link_to "RailsRemote.com", root_path
-            %small Remote Ruby on Rails jobs
+        %h1.text-center
+          = link_to "RailsRemote.com", root_path
+          %small Remote Ruby on Rails jobs
+      .row
+        .col-md-offset-1.col-md-10
+          = link_to "Post a New Job", new_job_path, class: 'pull-right post-new'
 
 
     .container
