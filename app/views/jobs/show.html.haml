@@ -7,7 +7,7 @@
 .row.test-job-form
   .col-md-offset-1.col-lg-10
     .well.bs-component.clearfix
-      %h2
+      %h2.job-title
         = @job.title
         %small
           at
@@ -23,7 +23,7 @@
           %h3 Time Zone Preferences
           %p= @job.timezone_preferences_description
 
-        .panel.panel-default
+        .panel.panel-default.push-down
           .panel-heading
             Apply for this Job
           .panel-body
@@ -34,6 +34,12 @@
                 It is
                 %b not ok
                 for recruitment agencies to contact us.
+
+        - if @job.next_visible
+          = link_to "Next Job: #{@job.next_visible.full_title} →", job_path(@job.next_visible), class: 'pull-right', rel: 'next'
+
+        - if @job.prev_visible
+          = link_to "← Previous Job: #{@job.prev_visible.full_title}", job_path(@job.prev_visible), rel: 'prev'
 
         - if params[:token] == @job.token
           .text-center
