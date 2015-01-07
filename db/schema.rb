@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20150104141741) do
   enable_extension "plpgsql"
 
   create_table "jobs", force: :cascade do |t|
-    t.datetime "created_at",                                                   null: false
-    t.datetime "updated_at",                                                   null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "token"
     t.string   "title"
     t.string   "job_type"
@@ -30,9 +30,8 @@ ActiveRecord::Schema.define(version: 20150104141741) do
     t.text     "how_to_apply"
     t.datetime "visible_until"
     t.boolean  "published"
-    t.string   "timezone_preferences",             limit: 255
-    t.text     "timezone_preferences_description"
-    t.boolean  "agencies_ok",                                  default: false, null: false
+    t.text     "timezone_preferences"
+    t.boolean  "agencies_ok",          default: false, null: false
   end
 
 end
