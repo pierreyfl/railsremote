@@ -1,8 +1,8 @@
 .bs-docs-section.test-job-form
   .row
-    .col-lg-offset-1.col-lg-10
+    .col-md-offset-1.col-md-10
       .well.bs-component.clearfix
-        .col-lg-offset-1.col-lg-10
+        .col-md-offset-1.col-md-10
           = form_for job, html: { class: 'js-form material-form' } do |f|
             = hidden_field_tag :token, params[:token]
 

@@ -5,14 +5,14 @@
 
 
 .row.test-job-form
-  .col-md-offset-1.col-lg-10
+  .col-md-offset-1.col-md-10
     .well.bs-component.clearfix
       %h2.job-title
         = @job.title
         %small
           at
           = link_to @job.company_name, @job.company_url, target: "_blank"
-      .col-lg-9
+      .col-md-9
         - if @job.type_specified?
           %p.job-type
             %label Job type:
@@ -49,7 +49,7 @@
           - if @job.prev_visible
             = link_to "← Previous Job: #{@job.prev_visible.full_title}", job_path(@job.prev_visible), rel: 'prev'
 
-      .col-lg-2
+      .col-md-2
         - text = "#{@job.company_name} is hiring a #{@job.title}"
         %p
           = mail_to "", subject: text, body: "#{text}\n#{job_url(@job)}" do
