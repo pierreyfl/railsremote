@@ -34,8 +34,10 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'redcarpet'
 gem 'rails_12factor'
+
 gem 'nokogiri'
 gem 'rest-client'
+gem 'reverse_markdown'
 
 gem 'rails-assets-bootstrap-material-design'
 gem 'rails-assets-bootstrap'
