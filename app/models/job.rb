@@ -19,11 +19,11 @@ class Job < ActiveRecord::Base
   end
 
   def next_visible
-    @next_visible ||= self.class.visible.order("id ASC").where("id > ?", id).first
+    @next_visible ||= self.class.visible.order("created_at ASC").where("created_at > ?", created_at).first
   end
 
   def prev_visible
-    @prev_visible ||= self.class.visible.order("id DESC").where("id < ?", id).first
+    @prev_visible ||= self.class.visible.order("created_at DESC").where("created_at < ?", created_at).first
   end
 
   def to_param

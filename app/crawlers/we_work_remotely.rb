@@ -9,7 +9,7 @@ class WeWorkRemotely
       unless Job.where(attrs.slice(:title, :company_name)).any?
         job = Job.new attrs
         if job.save
-          puts "\t-> √. http://www.remoterails.com/jobs/#{job.id}/edit?token=#{job.token}"
+          puts "\t-> √. http://www.railsremote.com/jobs/#{job.id}/edit?token=#{job.token}"
         else
           puts "\t-> X. #{job.errors.full_messages}"
         end
