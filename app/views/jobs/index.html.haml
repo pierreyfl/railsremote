@@ -11,5 +11,7 @@
         = render partial: 'quick_job', collection: @jobs, as: :job
 
       .clearfix
-        = link_to "Post a Job. Free for a limited time", new_job_path, class: 'btn btn-raised btn-default pull-right'
+        = link_to new_job_path, class: 'btn btn-raised btn-default pull-right' do
+          Post a Job
+          %small.hidden-xs.text-muted Free for a limited time
 
