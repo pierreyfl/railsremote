@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.visible.newest_first
+    @jobs = Job.visible.filtered(params[:job_type]).newest_first
   end
 
   def show
