@@ -14,7 +14,7 @@ class StackOverflow < CrawlBase
       company_url: doc.css("a.employer").first.attr(:href),
       how_to_apply: how_to_apply,
       description: description,
-      timezone_preferences: doc.css(".location").first.try(:text)
+      timezone_preferences: doc.css(".location").first.try(:text).strip
     }
   end
 
