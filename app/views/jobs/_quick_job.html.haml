@@ -10,4 +10,6 @@
       = link_to_if job.company_url.present?, job.company_name, job.company_url, target: '_blank'
       - if job.timezone_preferences.present?
         %small.text-muted.hidden-xs.ellipsis= job.timezone_preferences.lines.first
+      - if params[:controller] == 'admin_jobs'
+        = link_to "Edit", edit_job_path(job, token: job.token)
 .list-group-separator

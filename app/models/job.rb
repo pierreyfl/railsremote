@@ -6,6 +6,8 @@ class Job < ActiveRecord::Base
   }.freeze
 
   scope :visible, ->{ where("jobs.visible_until >= ?", Time.now).where(published: true) }
+  scope :published, ->{ where(visible_until: nil, published: true) }
+  scope :unpublished, ->{ where(visible_until: nil).where(published: [false, nil]) }
   scope :newest_first, ->{ order("jobs.created_at DESC") }
 
   before_create :generate_token
@@ -13,6 +15,14 @@ class Job < ActiveRecord::Base
   def self.filtered(type)
     return self unless type.in? TYPES.values
     where(job_type: type)
+  end
+
+  def self.with_admin_scope(scope)
+    if scope
+      public_send(scope)
+    else
+      newest_first
+    end
   end
 
   def expired?

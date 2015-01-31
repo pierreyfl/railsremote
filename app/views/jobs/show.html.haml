@@ -39,6 +39,8 @@
 
         - if params[:token] == @job.token
           .text-center
+            - if session[:admin] && @job.persisted?
+              = link_to "Admin Publish", admin_job_path(@job), method: :put, class: 'btn btn-raised btn-danger'
             = link_to "Edit the Job", edit_job_path(@job, token: params[:token]), class: 'btn btn-default btn-raised'
             - if !@job.published?
               = link_to "All good, make it live", job_path(@job, job: {published: true}, token: params[:token]), class: 'btn btn-success btn-raised', method: :patch
