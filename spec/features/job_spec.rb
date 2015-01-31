@@ -24,9 +24,8 @@ feature "Job" do
     fill_in_info_about_dev_job
     click_button 'Save and Continue'
 
-    expect(page).to have_no_content 'is a preview'
+    expect(page).to have_content 'All done!'
     expect(page).to have_content 'Junior Developer'
-    expect(page).to have_content 'public'
   end
 end
 

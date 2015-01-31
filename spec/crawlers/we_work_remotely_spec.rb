@@ -12,7 +12,7 @@ describe WeWorkRemotely do
 
   describe '#to_h' do
     it 'extracts relevant fields' do
-      hash = described_class.new('https://weworkremotely.com/jobs/1171', FixtureFetch).to_h
+      hash = described_class.new('https://weworkremotely.com/jobs/1171', fetcher_class: FixtureFetch).to_h
       expect(hash[:title]).to eq("Ruby Developer")
       expect(hash[:company_name]).to eq("Stack Builders")
       expect(hash[:company_url]).to eq("www.stackbuilders.com")

@@ -54,6 +54,7 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
-  gem 'capybara'
+  gem 'capybara-rails'
+  gem 'launchy' # save_and_open_page
 end
 
