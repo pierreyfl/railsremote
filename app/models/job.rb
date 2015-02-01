@@ -13,8 +13,11 @@ class Job < ActiveRecord::Base
   before_create :generate_token
 
   def self.filtered(type)
-    return self unless type.in? TYPES.values
-    where(job_type: type)
+    if type.in?(TYPES.values)
+      where(job_type: type)
+    else
+      where("id > 0")
+    end
   end
 
   def self.with_admin_scope(scope)
