@@ -16,7 +16,8 @@ class CrawlBase
       unless Job.where(attrs.slice(:title, :company_name)).any?
         job = Job.new attrs
         if job.save
-          "\t-> √. https://www.railsremote.com/jobs/#{job.id}/edit?token=#{job.token}"
+          base = Rails.env.development? ? "http://localhost:3000" : "http://www.railsremote.com"
+          "\t-> √. #{base}/jobs/#{job.id}/edit?token=#{job.token}"
         else
           "\t-> X. #{job.errors.full_messages}"
         end
