@@ -16,12 +16,13 @@ class CrawlBase
       unless Job.where(attrs.slice(:title, :company_name)).any?
         job = Job.new attrs
         if job.save
-          "\t-> √. http://localhost:3000/jobs/#{job.id}/edit?token=#{job.token}"
+          "\t-> √. https://www.railsremote.com/jobs/#{job.id}/edit?token=#{job.token}"
         else
           "\t-> X. #{job.errors.full_messages}"
         end
       end
     end
+    puts "No links found" unless edit_links.present?
     puts edit_links.join("\n")
   end
 

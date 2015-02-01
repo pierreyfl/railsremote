@@ -3,7 +3,7 @@ class StackOverflow < CrawlBase
     {
       url: "http://careers.stackoverflow.com/jobs?searchTerm=ruby&allowsremote=true&sort=p",
       base_url: "http://careers.stackoverflow.com",
-      list_link_selector: "h3.h5 a",
+      list_link_selector: ".jobs h3 a",
     }.freeze
   end
 
