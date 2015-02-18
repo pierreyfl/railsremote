@@ -5,6 +5,20 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    set_meta_tags(
+      title: [@job.title, @job.company_name].compact.join(" at "),
+      og: {
+        type: :article,
+        title: :title,
+        url: job_url(@job),
+        article: {
+          section: "Employability",
+          published_time: @job.created_at.to_s(:iso8601),
+          modified_time: @job.updated_at.to_s(:iso8601),
+          expiration_time: @job.visible_until.try(:to_s, :iso8601)
+        }
+      }
+    )
   end
 
   def edit

@@ -41,6 +41,7 @@ gem 'reverse_markdown'
 
 gem 'rails-assets-bootstrap-material-design'
 gem 'rails-assets-bootstrap'
+gem 'meta-tags'
 
 group :development, :test do
   gem 'pry'
