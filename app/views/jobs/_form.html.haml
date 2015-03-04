@@ -70,6 +70,8 @@
 
 
             .form-group.text-center
+              - if session[:admin] && job.persisted?
+                = link_to "Admin Delete", admin_job_path(job), method: :delete, class: 'btn btn-raised btn-danger', data: { confirm: "Delete?" }
               = f.submit "Save and Continue", class: 'btn btn-default btn-raised'
               = f.submit "Preview", class: 'btn btn-success btn-raised'
 

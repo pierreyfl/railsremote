@@ -15,6 +15,6 @@ class AdminJobsController < ApplicationController
   def destroy
     job = Job.find(params[:id])
     job.destroy
-    redirect_to action: :index
+    redirect_to admin_jobs_path(scope: :unpublished)
   end
 end
