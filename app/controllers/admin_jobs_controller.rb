@@ -11,4 +11,10 @@ class AdminJobsController < ApplicationController
     job.update_column(:visible_until, 1.month.from_now)
     redirect_to :back, notice: "Visible until #{job.visible_until}"
   end
+
+  def destroy
+    job = Job.find(params[:id])
+    job.destroy
+    redirect_to action: :index
+  end
 end

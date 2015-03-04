@@ -11,5 +11,7 @@
       - if job.timezone_preferences.present?
         %small.text-muted.hidden-xs.ellipsis= job.timezone_preferences.lines.first
       - if params[:controller] == 'admin_jobs'
-        = link_to "Edit", edit_job_path(job, token: job.token)
+        %p
+          = link_to "Edit", edit_job_path(job, token: job.token)
+          = link_to "Delete", admin_job_path(job), method: :delete, class: 'text-warning', data: { confirm: "Delete?" }
 .list-group-separator
