@@ -31,6 +31,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
+    return render text: "Success", status: :ok if params[:honey].present?
     if @job.save
       handle_success
     else

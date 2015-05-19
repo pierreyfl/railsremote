@@ -8,10 +8,17 @@
 
             %fieldset
               %legend Tell us about the job
+              - # this is a spam trap, users should not see not fill in this field
+              .form-group{style: "height: 0; position: absolute; left: -9000px"}
+                .form-control-wrapper
+                  = text_field_tag :honey, nil, class: 'form-control input-lg', tabindex: "-1"
+                  .floating-label Leave this blank
+
               .form-group
                 .form-control-wrapper
                   = f.text_field :title, class: 'form-control input-lg', required: :required
                   .floating-label Job Title
+
 
               .form-group
                 .form-control-wrapper
