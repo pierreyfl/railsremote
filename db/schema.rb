@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104141741) do
+ActiveRecord::Schema.define(version: 20171205165458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150104141741) do
     t.boolean  "published"
     t.text     "timezone_preferences"
     t.boolean  "agencies_ok",          default: false, null: false
+    t.string   "location"
   end
 
 end

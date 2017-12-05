@@ -1,0 +1,301 @@
+//= require_self
+//= require bootstrap
+//= require_tree .
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+body {
+  background-image: url("railsremote-bg.png");
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: "OpenSans", sans-serif !important;
+}
+
+
+
+body .container .well {
+  border-radius: 5px !important;
+  box-shadow: 0 0 0 0 !important;
+  -webkit-box-shadow: 0 0 0 0 !important;
+  
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "OpenSans", sans-serif !important;
+}
+
+.big-checkbox {width: 50px; height: 50px;}
+
+.well {
+  background-color: white !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  
+}
+
+.form-newpost {
+  border-radius: 5px !important;
+  box-shadow: 0 0 0 0 !important;
+  -webkit-box-shadow: 0 0 0 0 !important;
+  background-color: #edf9fd !important;
+  border-color: transparent !important;
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  
+}
+
+#social {
+  margin: 20px 10px;
+  text-align: center;
+}
+
+.smGlobalBtn { /* global button class */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border:2px solid #fff; /* add border to the buttons */
+    padding: 0px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 2em;
+    border-radius: 27px;
+    -moz-border-radius:27px;
+    -webkit-border-radius:27px;
+}
+
+.twGlobalBtn { /* global button class */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border:2px solid #fff; /* add border to the buttons */
+    padding: 0px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 1.8em;
+    border-radius: 27px;
+    -moz-border-radius:27px;
+    -webkit-border-radius:27px;
+}
+
+.bigGlobalBtn {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  padding: 0px;
+  text-decoration: none !important;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1.8em !important;
+  border-radius: 27px;
+  -moz-border-radius:27px;
+  -webkit-border-radius:27px;
+  
+}
+
+.plusBtn{
+  background: #07e9cb;
+}
+
+.plusBtn:before{
+  font-family: "FontAwesome";
+  content: "\f067"; /* add plus icon */
+}
+
+.plusBtn:hover{
+    color: #07e9cb;
+    background: #fff;
+    border-color: #07e9cb; /* change the border color on mouse hover */
+}
+
+
+.emailBtn{
+    background: #f6c315;
+}
+
+.emailBtn:before{ /* use :before to add the relevant icons */
+    font-family: "FontAwesome";
+    content: "\f0e0"; /* add facebook icon */
+}
+
+.emailBtn:hover{
+    color: #f6c315;
+    background: #fff;
+    border-color: #f6c315; /* change the border color on mouse hover */
+}
+
+.twitterBtn{
+    background: #00aced;
+}
+
+.twitterBtn:before{ /* use :before to add the relevant icons */
+    font-family: "FontAwesome";
+    content: "\f099"; /* add facebook icon */
+}
+
+.twitterBtn:hover{
+    color: #00aced;
+    background: #fff;
+    border-color: #00aced; /* change the border color on mouse hover */
+}
+
+.fa-exclamation-triangle {
+  color: #f6c315;
+  font-size: 30px;  
+}
+
+h3 {
+  font-size: 12px !important;
+  font-weight: bold;
+}
+
+p {
+  font-size: 12px !important;
+}
+
+.list-group-item-home {
+  margin-left: -20px;
+  margin-right: -20px;
+  border: none !important;
+  
+}
+
+.home-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-left: 30px;
+}
+
+.list-group-item:nth-child(odd) {
+  background: #edf9fd !important;
+}
+
+.least-content {
+      float: right;
+      margin-top: 20px;
+      font-size: 12px;
+      color: gray;
+}
+
+table {
+  margin-top: 20px;
+}
+
+tr {
+  display: flex;
+}
+
+td {
+  border: none !important;
+}
+
+tr:nth-child(odd) {
+  background-color: #edf9fd;
+}
+
+.description {
+  display: inline-table;
+  margin-top: 15px;
+}
+
+.home-job-company {
+  display: block;
+  font-size: 12px;
+  color: #84989F;
+}
+
+.home-job-city {
+  color: #84989F;
+}
+
+.home-job-title {
+  color: #00c0ff;
+  font-weight: bold;
+}
+
+.home-date {
+    /* display: inherit; */
+    /* float: right; */
+    display: flex;
+    width: 100%;
+    text-align: right;
+    align-self: right;
+    align-content: right;
+    align-self: right;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #84989F;
+}
+
+.date {
+  margin-left: auto;
+}
+
+.stylish-input-group {
+  width: 30%;
+  margin: auto;
+  min-width: 250px;
+  margin-top: 20px !important;
+  margin-bottom: 30px !important;
+}
+
+.stylish-input-group .input-group-addon{
+    background: white !important;
+    border-bottom-right-radius: 25px !important;
+    border-top-right-radius: 25px !important;
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.stylish-input {
+    border-bottom-left-radius: 25px !important;
+    border-top-left-radius: 25px !important;
+}
+
+.input-group-addon {
+  padding: 0 !important;
+}
+
+.search-button {
+    width: 37px;
+    color: #07e9cb;
+}
+
+.glyphicon {
+  font-size: 28px;
+}
+
+.logo {
+  display: block;
+  margin: auto;
+}
+
+.table {
+  margin-top: 40px;
+}

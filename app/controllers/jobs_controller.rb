@@ -58,7 +58,7 @@ private
     job_params = params.require(:job).permit(
         :token, :title, :job_type, :company_name, :salary,
         :company_url, :email, :description, :how_to_apply,
-        :agencies_ok, :timezone_preferences
+        :agencies_ok, :timezone_preferences, :location
     )
     job_params.merge!(published: params[:commit] != "Preview")
     job_params

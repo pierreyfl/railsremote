@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'font-awesome-sass'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -35,7 +36,7 @@ gem 'haml-rails'
 gem 'redcarpet'
 gem 'rails_12factor'
 
-gem 'nokogiri'
+gem 'nokogiri', '1.8.1'
 gem 'rest-client'
 gem 'reverse_markdown'
 

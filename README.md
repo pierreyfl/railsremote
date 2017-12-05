@@ -19,9 +19,13 @@ You can get the password by running the following command in your terminal:
 
     heroku config --app railsremote | grep ADMIN_PASSWORD
 
+Or going to heroku https://dashboard.heroku.com/apps/railsremote/settings and clicking `Reveal Config Vars`.
+
 You can update the password by running
 
     heroku config:set ADMIN_PASSWORD=yourNewPassword
+
+Or doing it in the heroku dashboard (link above).
 
 ### Admin tasks
 
