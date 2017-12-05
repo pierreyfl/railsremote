@@ -62,5 +62,5 @@
               %span
                 %img{:src => "http://localhost:3000/assets/arrow-left.png", class: "arrow"}/
               %span.arrow-text
-                = link_to "← Previous Job: #{@job.prev_visible.full_title}", job_path(@job.prev_visible), rel: 'prev'
+                = link_to "Previous Job: #{@job.prev_visible.full_title}", job_path(@job.prev_visible), rel: 'prev'
         
