@@ -44,6 +44,8 @@ gem 'rails-assets-bootstrap-material-design'
 gem 'rails-assets-bootstrap'
 gem 'meta-tags'
 
+gem 'intercom-rails'
+
 group :development, :test do
   gem 'pry'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
