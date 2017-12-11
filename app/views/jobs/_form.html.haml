@@ -12,23 +12,15 @@
         .col-md-6
           .mb-3
             %select#job_job_type.form-control{:name => "job[job_type]"}
-              %option{:value => "Unspecified"} --Select Job Type--
-              %option{:value => "Long Term"} Long Term
-              %option{:value => "Project"} Project
+              %option{:value => "Unspecified"} Select Job Type
+              %option{:value => "Contract C2C"} Contract C2C
+              %option{:value => "Full-Time"} Full-Time
+              %option{:value => "Internship"} Internship
       .form-group
         %label
-          Description (Markdown enabled)
+          Description
         %textarea#job_description.form-control{:name => "job[description]", :required => "required", :rows => "15"}
-          :preserve
-            ### About the team
-            
-            ### About the Role
-            
-            ### You are excited about this opportunity because you will...
-            
-            ### We are excited about you because you have experience with...
-            
-            
+
     %fieldset
       %legend.no-sep
         Tell us about the company
@@ -47,15 +39,7 @@
           .col-md-6
             .mb-3
               %input#job_email.form-control{:name => "job[email]", :placeholder => "Email", :required => "required", :type => "email"}/
-      .form-group
-        .form-control-wrapper
-          .checkbox
-            %label{:for => "job_agencies_ok"}
-              %input{:name => "job[agencies_ok]", :type => "hidden", :value => "0"}/
-              %input#job_agencies_ok{:name => "job[agencies_ok]", :type => "checkbox", :value => "1"}/
-              %span.ripple
-              %span.check
-              It's OK for agencies to contact me
+
     .row.new-jobs-save
       .form-group.text-center.form-inline-block
         %input.btn.btn-default.btn-raised{:name => "commit", :type => "submit", :value => "Save and Continue", :id => "save-continue"}/

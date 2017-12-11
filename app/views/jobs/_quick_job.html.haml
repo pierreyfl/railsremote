@@ -1,20 +1,18 @@
 %tr
-  %td
-    .img-div
-      %img{:src => "http://localhost:3000/assets/ellipse-1.png", class: "home-img"}/
-  %td.description
-    %span.home-job-title
-      = link_to job.title, job
-    %span.home-job-city
-      | 
-      = job.location
-    %span.home-job-company
-      = job.company_name
-      - if params[:controller] == 'admin_jobs'
-        %p
-          = link_to "Edit", edit_job_path(job, token: job.token)
-          = link_to "Delete", admin_job_path(job), method: :delete, class: 'text-warning', data: { confirm: "Delete?" }
-  %td.home-date
+  %td.description-container.col-md-10.col-sm-10.col-xs-9
+    .description
+      %span.home-job-title
+        = link_to job.title, job
+      %span.home-job-city
+        | 
+        = job.location
+      %span.home-job-company
+        = link_to job.company_name, url_with_protocol(job.company_url), target: "_blank"
+        - if params[:controller] == 'admin_jobs'
+          %p
+            = link_to "Edit", edit_job_path(job, token: job.token)
+            = link_to "Delete", admin_job_path(job), method: :delete, class: 'text-warning', data: { confirm: "Delete?" }
+  %td.home-date.col-md-2.col-sm-2.col-xs-3
     %span.date
       = "#{job.created_at.strftime('%B %e')}"
 

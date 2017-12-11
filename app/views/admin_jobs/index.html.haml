@@ -9,6 +9,8 @@
         = link_to "Visible", url_for(params.merge(scope: 'visible'))
         = link_to "Published", url_for(params.merge(scope: 'published'))
         = link_to "Unpublished", url_for(params.merge(scope: 'unpublished'))
-      .list-group
-        = render partial: 'jobs/quick_job', collection: @jobs, as: :job
+      .list-group.admin-jobs
+        %table.table
+          %tbody
+            = render partial: 'jobs/quick_job', collection: @jobs, as: :job
 

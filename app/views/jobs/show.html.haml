@@ -20,7 +20,7 @@
         = @job.title
         %small
           at
-          = link_to @job.company_name, @job.company_url, target: "_blank"
+          = link_to @job.company_name, url_with_protocol(@job.company_url), target: "_blank"
           in
           = @job.location
       .col-md-12
@@ -30,6 +30,9 @@
             = quick_job_icon @job
             %span.job-type
               = @job.job_type
+              |
+            %label#jobtype Posted on
+            = "#{@job.created_at.strftime('%B %e')}"
 
         %p= md @job.description
 
@@ -40,10 +43,10 @@
             %span.box-title
               To apply for this job
             %p
-              = @job.company_url
-            %i.fa.fa-exclamation-triangle
-              %span.box-title
-                Its not ok for recruitment agencies to contact us.
+              = link_to @job.company_url, url_with_protocol(@job.company_url), target: "_blank"
+
+            %span.box-title
+              Its not ok for recruitment agencies to contact us.
                 
         .row.marg-20
           - if params[:token] == @job.token
@@ -60,7 +63,7 @@
 
             - if @job.prev_visible
               %span
-                %img{:src => "http://localhost:3000/assets/arrow-left.png", class: "arrow"}/
+                = image_tag 'arrow-left.png', class: "arrow"
               %span.arrow-text
                 = link_to "Previous Job: #{@job.prev_visible.full_title}", job_path(@job.prev_visible), rel: 'prev'
         

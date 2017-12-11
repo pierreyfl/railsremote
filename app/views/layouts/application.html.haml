@@ -19,9 +19,9 @@
 
       ga('create', 'UA-4264346-10', 'auto');
       ga('send', 'pageview');
-    .header.container
+    .header.container.logo-container
       .row
-        = link_to href: 'http://www.example.com/' do
+        = link_to root_path do
           = image_tag 'tomash-logo.png', width: 350, height: 65, class: "logo", alt: 'a face that is unnervingly happy'
       
 
@@ -30,4 +30,12 @@
       - flash.each do |name, message|
         - type = name.to_s == 'notice' ? 'success' : 'error'
         = render 'shared/alert', type: type, highlight: '', text: message
+
+      .row
+        %form(method="get" action="/jobs" class="input-group stylish-input-group")
+          %input.form-control{placeholder: "Job Title", type: "text", name: "q", class: "stylish-input"}/
+          %span.input-group-addon
+            %button{type: "submit", class: "search-button"}
+              %span.glyphicon.glyphicon-circle-arrow-right
+
       = yield
