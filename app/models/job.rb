@@ -12,6 +12,9 @@ class Job < ActiveRecord::Base
 
   before_create :generate_token
 
+  after_save :enqueue_create_or_update_document_job
+  after_destroy :enqueue_delete_document_job
+
   def self.filtered(type)
     if type.in?(TYPES.values)
       where(job_type: type)
@@ -73,5 +76,13 @@ private
 
   def generate_token
     self.token ||= SecureRandom.hex(100)
+  end
+
+  def enqueue_create_or_update_document_job
+    Delayed::Job.enqueue CreateOrUpdateSwiftypeDocumentJob.new(self.id)
+  end
+
+  def enqueue_delete_document_job
+    Delayed::Job.enqueue DeleteSwiftypeDocumentJob.new(self.id)
   end
 end

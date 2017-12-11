@@ -1,6 +1,15 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.visible.filtered(params[:job_type]).newest_first
+    if params[:q]
+      client = Swiftype::Client.new
+      @results = client.search(ENV['SWIFTYPE_ENGINE_SLUG'], params[:q])
+      result_jobs_ids = @results['jobs'].collect{|job| job['external_id']}
+
+      @jobs = Job.visible.filtered(params[:job_type]).where(id: result_jobs_ids).newest_first
+    
+    else
+      @jobs = Job.visible.filtered(params[:job_type]).newest_first
+    end
   end
 
   def show

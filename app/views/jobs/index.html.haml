@@ -1,9 +1,9 @@
 .row
-.input-group.stylish-input-group
-  %input.form-control{:placeholder => "Job Title", :type => "text", class: "stylish-input"}/
-  %span.input-group-addon
-    %button{:type => "submit", class: "search-button"}
-      %span.glyphicon.glyphicon-circle-arrow-right
+  %form(method="get" action="/jobs" class="input-group stylish-input-group")
+    %input.form-control{placeholder: "Job Title", type: "text", name: "q", class: "stylish-input"}/
+    %span.input-group-addon
+      %button{type: "submit", class: "search-button"}
+        %span.glyphicon.glyphicon-circle-arrow-right
 .row
   .col-md-offset-1.col-md-10
     .well.bs-component
