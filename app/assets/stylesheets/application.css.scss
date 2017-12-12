@@ -113,6 +113,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .plusBtn{
   background: #07e9cb;
+  z-index: 1
 }
 
 .plusBtn:before{
@@ -129,6 +130,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .emailBtn{
     background: #f6c315;
+    z-index: 1
 }
 
 .emailBtn:before{ /* use :before to add the relevant icons */
@@ -144,6 +146,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .twitterBtn{
     background: #00aced;
+    z-index: 1
 }
 
 .twitterBtn:before{ /* use :before to add the relevant icons */
