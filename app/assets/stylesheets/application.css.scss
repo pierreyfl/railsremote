@@ -34,7 +34,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   background-color: white !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
-  
+  width: 95%;
+  margin: 0 auto;
 }
 
 .form-newpost {
@@ -43,10 +44,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   -webkit-box-shadow: 0 0 0 0 !important;
   background-color: #edf9fd !important;
   border-color: transparent !important;
-  width: 80%;
-  margin: auto;
-  margin-top: 20px;
-  
+  padding-bottom: 0px !important;
 }
 
 #social {
@@ -81,7 +79,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     height: 40px;
     border:2px solid #fff; /* add border to the buttons */
     padding: 0px;
-    text-decoration: none;
+    text-decoration: none !important;
     text-align: center;
     color: #fff;
     font-size: 22px;
@@ -273,6 +271,10 @@ tr:nth-child(odd) {
   min-width: 250px;
   padding-top: 0;
   margin-bottom: 30px !important;
+
+  @media only screen and (max-width : 767px) {
+    width: 85%;
+  }
 }
 
 .stylish-input-group .input-group-addon{

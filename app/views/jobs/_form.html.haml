@@ -1,46 +1,48 @@
-.well.bs-component.clearfix.form-newpost
-  %form#new_job.new_job{"accept-charset" => "UTF-8", :action => "/jobs", :method => "post"}
-    %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-    %input{:name => "authenticity_token", :type => "hidden", :value => "CvHXz8XQMOlEbhFjFUbUqDJ+4nnjrYuikFFAscyNWVzfTLcmkc03gTaoph6PH5nZtwDu7pGOvhnReNdg7qj8xQ=="}/
-    %input#token{:name => "token", :type => "hidden"}/
-    %fieldset
-      %legend.no-sep Tell us about the job
-      .row
-        .col-md-6
-          .mb-3
-            %input#job_title.form-control{:name => "job[title]", :placeholder => "Job Title", :required => "required", :type => "text"}/
-        .col-md-6
-          .mb-3
-            %select#job_job_type.form-control{:name => "job[job_type]"}
-              %option{:value => "Unspecified"} Select Job Type
-              %option{:value => "Contract C2C"} Contract C2C
-              %option{:value => "Full-Time"} Full-Time
-              %option{:value => "Internship"} Internship
-      .form-group
-        %label
-          Description
-        %textarea#job_description.form-control{:name => "job[description]", :required => "required", :rows => "15"}
+.row
+  .col-md-offset-1.col-md-10
+    .well.bs-component.clearfix.form-newpost
+      %form#new_job.new_job{"accept-charset" => "UTF-8", :action => "/jobs", :method => "post"}
+        %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+        %input{:name => "authenticity_token", :type => "hidden", :value => "CvHXz8XQMOlEbhFjFUbUqDJ+4nnjrYuikFFAscyNWVzfTLcmkc03gTaoph6PH5nZtwDu7pGOvhnReNdg7qj8xQ=="}/
+        %input#token{:name => "token", :type => "hidden"}/
+        %fieldset
+          %legend.no-sep Tell us about the job
+          .row
+            .col-md-6.form-group
+              .mb-3
+                %input#job_title.form-control{:name => "job[title]", :placeholder => "Job Title", :required => "required", :type => "text"}/
+            .col-md-6.form-group
+              .mb-3
+                %select#job_job_type.form-control{:name => "job[job_type]"}
+                  %option{:value => "Unspecified"} Select Job Type
+                  %option{:value => "Contract C2C"} Contract C2C
+                  %option{:value => "Full-Time"} Full-Time
+                  %option{:value => "Internship"} Internship
+          .form-group
+            %label
+              Description
+            %textarea#job_description.form-control{:name => "job[description]", :required => "required", :rows => "15"}
 
-    %fieldset
-      %legend.no-sep
-        Tell us about the company
-      .row
-        .col-md-6
-          .mb-3
-            %input#job_company_name.form-control{:name => "job[company_name]", :placeholder => "Company Name", :required => "required", :type => "text"}/
-        .col-md-6
-          .mb-3
-            %input#job_company_location.form-control{:name => "job[location]", :placeholder => "Location", :required => "required", :type => "text"}/
-      .row
-        .top-20
-          .col-md-6
-            .mb-3
-              %input#job_company_url.form-control{:name => "job[company_url]", :placeholder => "Website URL", :type => "text"}/
-          .col-md-6
-            .mb-3
-              %input#job_email.form-control{:name => "job[email]", :placeholder => "Email", :required => "required", :type => "email"}/
+        %fieldset
+          %legend.no-sep
+            Tell us about the company
+          .row
+            .col-md-6.form-group
+              .mb-3
+                %input#job_company_name.form-control{:name => "job[company_name]", :placeholder => "Company Name", :required => "required", :type => "text"}/
+            .col-md-6.form-group
+              .mb-3
+                %input#job_company_location.form-control{:name => "job[location]", :placeholder => "Location", :required => "required", :type => "text"}/
+          .row
+            .col-md-6.form-group
+              .mb-3
+                %input#job_company_url.form-control{:name => "job[company_url]", :placeholder => "Website URL", :type => "text"}/
+            .col-md-6.form-group
+              .mb-3
+                %input#job_email.form-control{:name => "job[email]", :placeholder => "Email", :required => "required", :type => "email"}/
 
-    .row.new-jobs-save
-      .form-group.text-center.form-inline-block
-        %input.btn.btn-default.btn-raised{:name => "commit", :type => "submit", :value => "Save and Continue", :id => "save-continue"}/
-        %input.btn.btn-success.btn-raised{:name => "commit", :type => "submit", :value => "Preview", :id => "preview"}/
+        .row.new-jobs-save
+          .col-md-6.form-group.text-center
+            %input.btn.btn-success.btn-raised{:name => "commit", :type => "submit", :value => "Preview", :id => "preview"}/
+          .col-md-6.form-group.text-center
+            %input.btn.btn-default.btn-raised{:name => "commit", :type => "submit", :value => "Save and Continue", :id => "save-continue"}/
